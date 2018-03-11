@@ -1,0 +1,155 @@
+<!-- *************ngdirective for main root app tag************** -->
+<ng-content> </ng-content>
+<!-- *************************** -->
+<p>
+  header works!
+</p>
+
+<h1> {{greetings}} </h1>
+
+<h4> {{obj.title}}</h4>
+
+<img [src]="imgSrc">
+
+<h2 [class]="'h2-classes'">
+	
+	Hello h2 classes
+</h2>
+
+<button (click) ="listenClick( myName.value )">
+	login
+</button>
+
+Name: <input #myName type="text" name="name">
+
+
+<h3 [ngStyle]="{'color': gColor }">
+	This is green color text
+</h3>
+
+
+
+<h4 [ngClass] ="ycolor">
+	
+	This is yellow color text.
+</h4>
+
+<h4 ngNonBindable>{{greetings}}</h4>
+
+<ul>
+	<li *ngFor="let course of courses">
+		{{course.name}}{{course.duration}}
+	</li>
+</ul>
+
+<table border="5px" *ngIf="true">
+	<tr *ngFor="let c of courses">
+		<td>{{c.name}}</td>
+		<td>{{c.duration}}</td>
+	</tr>
+</table>
+
+<h3 *ngIf= "!isLoggedIn">
+	welcome guest user
+</h3>
+
+<h3 *ngIf= "isLoggedIn">
+	welcome logged in user
+</h3>
+<button (click)="toggleButton()">
+	logged out
+</button>
+
+<div [ngSwitch]= "'four'">
+	<p *ngSwitchCase= "'one'">One</p>
+	<p *ngSwitchCase= "'two'">Two</p>
+	<p *ngSwitchCase= "'three'">Three</p>
+	<p *ngSwitchDefault>default</p>
+</div>
+
+
+<!-- name: <input type="text" name="name" [(ngModel)]="myNames">
+
+{{myNames}}
+
+email: <input type="text" #emailss name="email" (keyup)="changeEmail(emailss.value)">
+	{{myEmail}} -->
+
+<!-- <button (click)="dummyFunc()">
+	getInfo
+
+</button> -->
+
+
+<button (click)="dummyFunc()">
+	loggedout
+
+</button>
+<form #loginForm="ngForm" (ngSubmit)= "loginMe( loginForm.value )">
+	<label for="email">email</label>
+	<input type="email" [(ngModel)]="user.email" name="email" required>
+	<br>
+	
+	<label for="email">password</label>
+	<input type="password" [(ngModel)]="user.pwd" name="pwd" required>
+
+	<button type="submit" [disabled] = "loginForm.form.invalid">submit</button>
+</form>
+
+<!-- 	********pipes********** -->
+	<h1>Pipes for date writing..........</h1>
+		<!-- {{myBirthDate | date :'dd-MM-yyyy'}} -->
+		<!-- {{myBirthDate | date :'mediumDate'}} -->
+		<!-- {{myBirthDate | date :'longDate'}} -->
+		{{myBirthDate | date :'shortDate'}}
+
+
+
+	<!-- 	******slice pipe********** -->
+			{{myCourse | slice:0:8}}
+	
+			<ul>
+				<li *ngFor = "let mn of newcourses | slice:0:2">
+					{{mn}}
+				</li>
+			</ul>
+		
+
+	<!-- **************upper case lower case pipe********** -->
+		{{myCourse | uppercase}}
+		{{myCourse | lowercase}}
+
+
+		<!-- **********Json pipe********* -->
+		{{customerObj | json}}
+
+	<!-- **************number pipe************ -->
+		<h1>Number pipes</h1>
+		{{pi | number:'1.3-5'}}
+		{{pi | number:'1.3-10'}}
+		{{pi | number:'5.20-20'}}
+	
+	<!-- ***********currency pipe************** -->
+
+		<h1>Currency pipe</h1>
+		{{a | currency:'EUR'}} <br>
+		{{a | currency:'NEP'}} <br>
+		{{a | currency:'INR':true}} <br>
+		
+	<!-- **************percent************* -->
+		<h1>percent</h1>
+	{{a | percent}}<br>
+	{{b | percent}}
+		
+		<!-- **************async pipe************* -->
+		<div>
+			<h2>Async pipe</h2>
+			<h4>wait..........{{promise | async}}</h4>
+			<button type="button" (click)="onClick()">promise</button>
+		</div>
+
+
+
+
+
+			

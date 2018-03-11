@@ -1,0 +1,121 @@
+<!-- loading index.html part . this is directive -->
+	
+<app-header [named]="myAllNames" (customClick)="getInfoFromHeaderComponent($event)">
+	loading............
+</app-header>
+<!-- ***************************** -->
+
+
+
+<h1>
+  Hello Aruna
+</h1>
+
+
+
+<app-header [named]="myAllNames" (customClick)="getInfoFromHeaderComponent($event)"></app-header>
+
+{{initialText}}
+<app-header>hello</app-header>
+<app-header>Sunsine</app-header>
+
+
+
+<button (click) = "getFood()">
+	get Data
+</button>
+
+<ul>
+	<li *ngFor= "let tempData of Data">
+		{{tempData.name}}
+		{{tempData.cost}}
+	</li>
+</ul>
+
+<!-- <button (click) = "callingChildFunction()" >
+	call child function
+
+</button> -->
+<button (click) = "callChildFunction()">
+	this is calling child function
+</button>
+
+<!-- **************directives**************** -->
+
+
+<h2 appTextHighlight>
+	I am inside h2 directive*********
+</h2>
+
+<h4 appTextHighlight>Hello world directive</h4>
+
+<h1 appTextHighlight [color]="'green'">
+	I am inside h2 directive*********
+</h1>
+
+<!-- // *********cdaStruct directive************ -->
+	
+	<h1 *appCdaStruct = "true">
+		I am appStructDirective
+	</h1>
+
+<!-- 
+******************ROUTING******************** -->
+	<h1>Routing example</h1>
+	<ul>
+		<li style="display:inline;">
+			<a routerLink="/home/1234">Home</a>
+		</li>
+		<li style="display:inline;">
+			<a routerLink="/about">About</a>
+		</li>
+		<li style="display:inline;">
+			<a routerLink="/contact">Contact</a>
+		</li>
+		<li style="display:inline;">
+			<a routerLink="/services">Services</a>
+		</li>
+		<li style="display:inline;">
+			<a routerLink="/header">Header</a>
+		</li>
+	</ul>
+
+
+
+<router-outlet></router-outlet>
+
+
+<!-- ***************************** -->
+
+<form>
+	Email:<input type="email" name="email" #email>
+	Pwd:<input type="password" name="password" #password>
+	<input type="submit" name="submit" (click) = "goToOtherRoute( email.value, password.value)">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
